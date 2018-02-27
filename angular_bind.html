@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript" src = "angular.min.js"></script>
+<body ng-app="myapp">
+	<div ng-controller="mycontr">
+		<p ng-bind="greeting"></p><span>,angular</span>
+	</div>
+</body>
+<script type="text/javascript">
+	var app = angular.module('myapp', []);
+	app.controller('mycontr', ['$scope', function ($scope) {
+		$scope.greeting="hello";
+	}]);
+</script>
+</html>
