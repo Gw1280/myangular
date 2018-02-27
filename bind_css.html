@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<title></title>
+</head>
+<script type="text/javascript" src ="angular.min.js"></script>
+<style type="text/css">
+	.css_red{
+		background-color: red;
+		width: 100%;
+	}
+	.css_green{
+		background-color: green;
+		width: 100%;
+	}
+</style>
+<body ng-controller="myctrl">
+	<p ng-class="{css_red:red, css_green:green}"">test css at here</p>
+	<button ng-click="setgreen()">setgreen</button>
+	<button ng-click="setred()">setred</button>
+</body>
+<script type="text/javascript">
+	var app = angular.module('myapp',[]);
+	app.controller('myctrl', ['$scope', function ($scope) {
+		$scope.setgreen = function () {
+			$scope.red = false;
+			$scope.green = true;
+		}
+		$scope.setred = function () {
+			$scope.red = true;
+			$scope.green = false;
+		}
+	}])
+</script>
+</html>
