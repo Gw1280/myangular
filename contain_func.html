@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>包围函数，函数会自运行</title>
+</head>
+<body>
+	<p>this is a contain func</p>
+</body>
+<script type="text/javascript">
+	/*way 1*/
+	(function(str){
+		console.log(str);
+	})('123');
+
+	/*way 2 注意括号位置*/
+	(function(str){
+		console.log(str);
+	}('123'));
+	/*way3 在前面加一元运算符*/
+	!function (str) {
+		console.log(str);
+	}('123');
+</script>
+</html>
