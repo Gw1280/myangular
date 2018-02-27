@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app = "myapp">
+<head>
+	<title></title>
+</head>
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
+<script type="text/javascript" src = "angular.min.js"></script>
+<body>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<div class="panel-tittle">双向数据</div>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12">
+					<form action="" class="form-horizontal" role = "form" ng-controller="myctrl">
+						<div class="form-group">
+							<label for="" class="col-md-2 control-label">邮箱:</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" placeholder="youxiang" ng-model = "userInfo.email">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-md-2 control-label">密码:</label>
+							<div class="col-md-10">
+								<input type="password" class="form-control" placeholder="mima" ng-model = 'userInfo.password'>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-10 col-md-offset-2">
+								<div class="checkbox">
+									<label for="">
+										<input type="checkbox" name="" ng-model = "userInfo.autoLog">autoLog
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-offset-2 col-md-2">
+								<button class="btn-default" ng-click="getform()">getForm</button>
+								<button class="btn-default" ng-click="setform()">setForm</button>
+								<button class="btn-default" ng-click="reset()">reset</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>	
+</body>
+<script type="text/javascript">
+	var app = angular.module('myapp',[]);
+	app.controller('myctrl', ['$scope', function ($scope) {
+		$scope.userInfo = {
+			email: '123456789@123.com',
+			password: '123456789',
+			autoLog: true
+		};
+		$scope.getform = function () {
+			console.log($scope.userInfo);
+		};
+		$scope.setform = function () {
+			$scope.userInfo = {
+				email: '987654321@321.com',
+				password: '987654321',
+				autoLog: false
+			};
+		};
+		$scope.reset = function () {
+			$scope.userInfo = {
+				email: '123456789@123.com',
+				password: '123456789',
+				autoLog: true
+			};
+		};
+	}]);
+</script>
+</html>
