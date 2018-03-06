@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<title>开关菜单</title>
+</head>
+<script type="text/javascript" src="angular.min.js"></script>
+<body>
+	<div ng-controller="myctrl">
+		<button ng-click="toggleit()">Toggle Menu</button>
+		<ul ng-show="showkey">
+			<li>this is the 1st.</li>
+			<li>this is the 2nd.</li>
+			<li>this is the 3rd.</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	var app = angular.module('myapp', []);
+	app.controller('myctrl', ['$scope', function($scope){
+		$scope.toggleit = function () {
+			$scope.showkey = !$scope.showkey;
+		}
+	}])
+</script>
+</html>
