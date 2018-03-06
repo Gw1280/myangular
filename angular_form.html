@@ -74,5 +74,32 @@
 			};
 		};
 	}]);
+
+
+	 $(document).ready(function () {
+            $('#btn_login').click(function () {
+                var user = $('#input_user').val();
+                user = $.trim(user);
+                var pass = $('#input_pass').val();
+                var ide = getIDE();
+                if (ide == 1) {
+                    //getAuth('Web', user, pass, ide, pass);
+                   	var xhr = createxmlHttpRequest();
+                   	xhr.open('GET','http://' + comServerIP + '/Home/' + url + '/Authorization');
+					xhr.setRequestHeader('XXX', ide);
+                    xhr.onreadystatechange = function() {
+                            if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304) { // readyState == 4说明请求已完成
+                                console.log(xhr.responseText);
+                            }
+                        };
+                        xhr.send();
+                }else {
+                    var auth = getAuthTest2(ide);
+                    var validate = md5(pass + auth);
+                    getAuth('Web', user, auth + ',' + validate, ide, pass);
+				};
+			});
+       	window.history.forward(1);		//防止注销后后退
+	});
 </script>
 </html>
